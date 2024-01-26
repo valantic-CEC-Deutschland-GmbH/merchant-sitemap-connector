@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace ValanticSpryker\Zed\MerchantSitemapConnector\Persistence\Mapper;
 
-use Generated\Shared\Transfer\SitemapUrlTransfer;
+use Generated\Shared\Transfer\SitemapUrlNodeTransfer;
 use Orm\Zed\Url\Persistence\SpyUrl;
 use Propel\Runtime\Collection\ObjectCollection;
 use ValanticSpryker\Shared\MerchantSitemapConnector\MerchantSitemapConnectorConstants;
@@ -28,14 +28,14 @@ class MerchantSitemapConnectorMapper implements MerchantSitemapConnectorMapperIn
     /**
      * @param \Propel\Runtime\Collection\ObjectCollection $urlEntities
      *
-     * @return array<\Generated\Shared\Transfer\SitemapUrlTransfer>
+     * @return array<\Generated\Shared\Transfer\SitemapUrlNodeTransfer>
      */
-    public function mapUrlEntitiesToSitemapUrlTransfers(ObjectCollection $urlEntities): array
+    public function mapUrlEntitiesToSitemapUrlNodeTransfers(ObjectCollection $urlEntities): array
     {
         $transfers = [];
 
         foreach ($urlEntities as $urlEntity) {
-            $transfers[] = $this->createSitemapUrlTransfer($urlEntity);
+            $transfers[] = $this->createSitemapUrlNodeTransfer($urlEntity);
         }
 
         return $transfers;
@@ -44,11 +44,11 @@ class MerchantSitemapConnectorMapper implements MerchantSitemapConnectorMapperIn
     /**
      * @param \Orm\Zed\Url\Persistence\SpyUrl $urlEntity
      *
-     * @return \Generated\Shared\Transfer\SitemapUrlTransfer
+     * @return \Generated\Shared\Transfer\SitemapUrlNodeTransfer
      */
-    private function createSitemapUrlTransfer(SpyUrl $urlEntity): SitemapUrlTransfer
+    private function createSitemapUrlNodeTransfer(SpyUrl $urlEntity): SitemapUrlNodeTransfer
     {
-        return (new SitemapUrlTransfer())
+        return (new SitemapUrlNodeTransfer())
             ->setUrl($this->formatUrl($urlEntity))
             ->setUpdatedAt($urlEntity->getVirtualColumn('updated_at'))
             ->setResourceId($urlEntity->getFkResourcePage())

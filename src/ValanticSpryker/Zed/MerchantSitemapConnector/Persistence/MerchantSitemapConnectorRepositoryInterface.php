@@ -13,7 +13,7 @@ interface MerchantSitemapConnectorRepositoryInterface
      * @param int $page
      * @param int $pageLimit
      *
-     * @return array<\Generated\Shared\Transfer\SitemapUrlTransfer>
+     * @return array<\Generated\Shared\Transfer\SitemapUrlNodeTransfer>
      */
     public function findActiveMerchants(StoreTransfer $storeTransfer, int $page, int $pageLimit): array;
 }

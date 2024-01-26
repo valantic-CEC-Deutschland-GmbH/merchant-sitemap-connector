@@ -20,7 +20,7 @@ class MerchantSitemapConnectorRepository extends AbstractRepository implements M
      * @param int $page
      * @param int $pageLimit
      *
-     * @return array<\Generated\Shared\Transfer\SitemapUrlTransfer>
+     * @return array<\Generated\Shared\Transfer\SitemapUrlNodeTransfer>
      */
     public function findActiveMerchants(StoreTransfer $storeTransfer, int $page, int $pageLimit): array
     {
@@ -45,7 +45,7 @@ class MerchantSitemapConnectorRepository extends AbstractRepository implements M
 
         return $this->getFactory()
             ->createMerchantSitemapMapper()
-            ->mapUrlEntitiesToSitemapUrlTransfers($query->find());
+            ->mapUrlEntitiesToSitemapUrlNodeTransfers($query->find());
     }
 
     /**
