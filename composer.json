@@ -2,10 +2,10 @@
     "name": "valantic-spryker/merchant-sitemap-connector",
     "type": "library",
     "description": "Adds merchant URL resources",
-    "license": "MIT",
+    "license": "proprietary",
     "require": {
         "php": ">=8.0",
-        "valantic-spryker/sitemap": "^4.0.0"
+        "valantic-spryker/sitemap": "^4.0.4"
     },
     "autoload": {
         "psr-4": {
